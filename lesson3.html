@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map</title>
+</head>
+<body>
+
+</body>
+<script>
+	var array = ["os","nurs"];
+	var objects = [
+		{name:"os",surname:"aşar"},
+		{name:"nurs",surname:"özkan"}
+	];
+	array.map(function(item,index){
+		console.log(item);
+	})
+	objects.map((item,index) => {
+		console.log(item.name+"::"+item.surname);
+	});
+</script>
+</html>

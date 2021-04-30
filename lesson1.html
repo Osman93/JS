@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document Write ile Yazdırma / Alert</title>
+	<meta charset="utf-8"/>
+</head>
+
+<body onLoad="load()">
+	<noscript>JS çalıştırmıyor</noscript>
+	<p id="id" xx="xx">Deneme</p>
+	<button onClick="changeText()">Text Change</button>
+	<button onClick="changeCss()">Css Change</button>
+	<button onClick="addAttribute()">Add attribute</button>
+
+
+</body>
+<script>
+	//document.write("Osman şşş");
+	//alert("Hey Bro");
+	document.getElementById('id');
+	function changeText(){
+		document.getElementById('id').innerHTML = 'New Text';
+	}
+	function changeCss(){
+		document.getElementById('id').style.backgroundColor = "red";
+		document.getElementById('id').style.color = "white";
+
+	}
+	function addAttribute(){
+		document.querySelector('#id').setAttribute("xx", "yy");
+	}
+
+	//DEĞİŞKENLER
+	var varNumber = 12;
+	var varBoolean = true;
+	var varUndefined = undefined;
+	var varString = "Osman";
+	var varObject = {name:"Osman",surname:"Aşar"};
+	var varNull = null;
+
+	console.log(typeof(varNumber));
+	console.log(typeof(varBoolean));
+	console.log(typeof(varUndefined));
+	console.log(typeof(varString));
+	console.log(typeof(varObject));
+	console.log(typeof(varNull));
+
+	//null ve array türü object türündedir.UNutma!!
+	console.log(null === undefined);//Hem tipi hemde içeriği eşitmi FALSE
+	console.log(null == undefined);//Tipi eşitmi TRUE
+
+	//OBJECT
+	var car = {
+		name:"Mercedes",
+		model:"A180",
+		start:function(){
+			return this.name + " : " + this.model;
+		}
+	}
+	console.log(car.start());
+
+	//EVENTS
+	function load(){
+		console.log("Sayfa Yüklendi");
+	}
+	//onChange,onFocus,onBlur,onMouseMOve vb
+
+	//DATES
+
+	var dates = new Date();
+	console.log(dates);
+	console.log(dates.getDay());
+
+	const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+	const firstDate = new Date(2008, 1, 12);
+	const secondDate = new Date(2008, 1, 22);	
+
+	const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+	console.log(diffDays);
+
+	//Array
+
+	var array = ["JS","HTML","CSS"];
+
+	console.log(array.length);
+	console.log(array.push("react"));//Arayin son lengthini dönderir
+	console.log(array.pop());//Pop son elemanı döndürü siler
+	console.log(array.shift());//Önden çıkarılan elemanı döndürür
+	console.log(array.join(".."));
+	console.log(array.splice(1,0,"Vue"));//1 elemandan sonra diğeri silinecek eleman sayısı diğer parametre ekleme
+	console.log(array.join(".."));
+
+	//SORT
+
+	var numbers = [ 8,11,1,19,40,43];
+
+	console.log(numbers.sort());
+	console.log(numbers.sort(function(x,y){
+		console.log(x+"::"+y);
+		return x-y;
+	}))
+
+	var objects = [
+		{name:"Asus",year:2013},
+		{name:"lenova",year:2016},
+		{name:"Acu",year:2014},
+
+	];
+
+	console.log(objects.sort(function(a,b){
+		//console.log(x+"::"+y);
+		  if ( a.name < b.name ){
+		    return -1;
+		  }
+		  if ( a.name > b.name ){
+		    return 1;
+		  }
+		  return 0;
+	}))
+
+	//BİT
+
+	console.log(5<<2);
+	console.log(5>>2);
+
+
+</script>
+</html>

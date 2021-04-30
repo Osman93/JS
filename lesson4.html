@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>	
+
+</body>
+<script type="text/javascript">
+	//Template Literals
+	const isim = "osman";
+	const mesaj = `merhaba ${isim}`;
+	console.log(mesaj);
+
+	const birim_fiyat = 10;
+	const adet = 4;
+	const para_birimi = "TL";
+
+	console.log(`Toplam Tutar = ${birim_fiyat * adet} ${para_birimi}`)
+
+	//Shorthand property
+
+	let name = "Osman";
+	let age = 28;
+
+	//{name:"Osman",age:28} -> {name:name,age:age}
+
+	const userObj = {name,age};
+	console.log(userObj);
+
+	//Arrow FUnc
+
+	const topla = (sayi1,sayi2) =>  sayi1 + sayi2;
+
+	console.log(topla(10,11));
+
+	//OBJECT and ARRAY Destructuring
+
+	const user = {
+		name2:"Osman",
+		surname:"AŞar",
+		age:28,
+		city:"Ankara"
+	}
+
+	const {name2,...others} = user;
+	console.log(name);
+	console.log(others);
+
+	const sayilar = [1,2,3,4,5];
+	const [birinciEleman , ...kalanlar] = sayilar;
+	console.log(birinciEleman);
+	console.log(kalanlar);
+
+
+	//PARAMATER DEFAULTS
+	function toplaDefaults(sayi1 = 0 , sayi2 = 0){
+		return sayi1 + sayi2;
+	}
+	console.log(toplaDefaults());
+
+	//REST/SPREAD OPERATOR
+
+	let kullanici = { 
+		isim:"Osman",
+		yas: 28,
+		sehir:"İstanbul"
+	};
+	//kullanici.sehir = "Ankara"; Yanlış kullanım
+
+	kullanici = {...kullanici,sehir:"Ankara"};
+	console.log(kullanici);
+
+	function toplaSpread(sayi1,sayi2,sayi3){
+		return sayi1 + sayi2 + sayi3;
+	}
+	const arr = [1,2,3];
+
+	console.log(toplaSpread(...arr));
+
+	//find(),some(),every() kullanımı
+
+	const urunler = [
+		{id:1,name:"Kalem",fiyat:5},
+		{id:2,name:"Defter",fiyat:10},
+		{id:3,name:"Silgi",fiyat:2},
+		{id:4,name:"KalemTıraş",fiyat:4},
+
+	];
+
+	console.log(
+		urunler.find((urun) => {
+			return urun.fiyat >= 3;
+		})
+	);
+	console.log(
+		urunler.some((urun) => {
+			return urun.fiyat >= 5;
+		})
+	);
+	console.log(
+		urunler.every((urun) => {
+			return urun.fiyat >= 5;
+		})
+	);
+
+	//includes()
+	const kelime = "Osman";
+	console.log("İncludes: Harf duyarlığı vardır(case-sensitive)");
+	console.log(kelime.includes("man"));
+	console.log(kelime.includes("osman"));
+	console.log(kelime.toLowerCase().includes("osman"));
+
+
+	//map() kullanımı
+	console.log(urunler);
+	urunler.map((urun) => {
+		console.log(`${urun.name} fiyatı = ${urun.fiyat} tldir.`);
+	});
+
+	//filter() kullanımı
+
+	const x = urunler.filter((urun) => {
+		return urun.fiyat >= 5;
+	}).map((urun) => {
+		console.log(`${urun.name} fiyatı = ${urun.fiyat} liradır`);
+	});
+	//console.log(x);
+
+	//reduce() kullanımı
+	const y = urunler.reduce((toplam,urun) =>{ 
+		return toplam + urun.fiyat
+	},0);//Toplamalarda kullanılır.
+	console.log(y);
+
+
+	//PROMİSE and await/async eş zamanlı olmayan işlemler
+
+	const veriGetir = new Promise((resolve,reject) => {
+		let control = false;
+		if(control){
+			resolve("Evet");
+		}else{
+			reject("NOOOO");
+		}
+	})
+	.then((res) => {
+		console.log(res);
+	})
+	.catch((err) => {
+		console.error(err);
+	});
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+<script>
+	//axios asyn/await
+
+	async function getAkis(){
+		const akis = await axios.get('http://on-csoft.com/api/kpss/v1/akis');
+		//console.log(akis);
+		return akis;
+	}
+
+	console.log(getAkis().then((res) => console.log(res)));
+</script>
+<script type="module">
+   //EXPORTS and İMPORTS
+	import merhaba , {k} from "./source.js";
+	console.log(merhaba("osi"));
+	console.log(k);
+</script>
+</html>
