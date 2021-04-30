@@ -2,10 +2,12 @@ import React , {useState , useEffect} from "react";
 import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
+import Search from "./Search";
 //prop salt okunur, state hem okunur hem yazılır
 //state her değiştiğinde render çalışır.
 function App() {
   const [isim,setIsim] = useState('Hey');
+  const [search,setSearch] = useState('');
   const [data,setData] = useState([]);
   useEffect(() => {
     console.log('useEffect first()');
@@ -37,10 +39,14 @@ function App() {
           <p>Children Geldi</p>
         </Hosgeldin>
         <button onClick={() => setIsim("Osman")}>İsim Değiş</button>
+        <Search search={search} onSearchChange={(e) => { setSearch(e.target.value) } }/>
         { isim === 'Hey' && <MesajGoster/> }
         {
-          data.map((item,index) => {
-            return <p>{item.Adi}</p>
+          data.filter((s) => {
+            return s.Adi.toLowerCase().includes(search); 
+          })
+          .map((item,index) => {
+            return <p key={index}>{item.Adi}</p>
           })
 
         }
