@@ -5,8 +5,6 @@ import MemoHook from "./hooks/MemoHook";
 import RefHook from "./hooks/RefHook";
 import ContextHook from "./hooks/ContextHook";
 import ReducerHook from "./hooks/ReducerHook";
-
-
 import { UserContext } from "./contexts/UserContext";
 
 let data = [
@@ -32,8 +30,6 @@ function App() {
 	        <RefHook/>	
 	        <ContextHook/>
 	        <ReducerHook/>
-
-
 	    </div>
     </UserContext.Provider>
   );

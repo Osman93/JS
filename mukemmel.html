@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mükemmel Sayı</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+
+	var sayi = 28;
+	var bolenler = [];
+	var toplam = 0;
+	for(var i=1;i<=Math.abs(sayi/2);i++){
+		if((sayi % i) == 0){
+			bolenler.push(i);
+			toplam += i;
+		}
+	}
+
+	if(toplam == sayi){
+		console.log(`${sayi} sayisi mükemmel sayıdır.Bölenler = ${bolenler}`);
+	}else{
+		console.log(`${sayi} sayisi mükemmel sayı değildir.`)
+	}
+	//1'den 1000 'e kadar mükemmel sayılar
+	var mukemmels = [];
+	for(var i=2;i<=10000;i++){
+		var toplam = 0;
+		for(var j=1;j<=Math.abs(i/2);j++){
+			if(i % j == 0){
+				toplam += j;
+			}
+		}
+		if(toplam == i){
+			mukemmels.push(i);
+			toplam = 0;
+		}
+	}
+	console.log(`1-den 1000'e mükemmel sayılar ${mukemmels}`);
+</script>
+</html>
