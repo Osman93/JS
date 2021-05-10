@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Obeb</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	var sayi1 = 12;
+	var sayi2 = 24;
+	var bolenler = [];
+	function obeb(sayi1,sayi2){
+		var kucuk = (sayi1 >= sayi2) ? sayi2 : sayi1;
+		for(var i = 2 ; i <= kucuk; i++){
+			if(sayi1 % i == 0 && sayi2 % i == 0){
+				bolenler.push(i);
+			}
+		}
+
+		return bolenler.pop();
+	}
+
+	console.log(obeb(12,24));
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diziler</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	const dizi = [1,3,5,7,9,11,0];
+	dizi.forEach( (item,index) => {
+		console.log(`index:${index} = ${item}`);
+	})
+
+	//map yeniden otomatik dizi ortaya çıkarır.
+
+	const mapDizi = dizi.map((item) => item*2);
+	console.log(mapDizi);
+
+	//Dizilerde filter kullanmak için kullanılır .Yeni dizi oluşturur
+
+	const filterDizi = mapDizi.filter(item=>item>2);
+	console.log(filterDizi);
+
+	//reduce toplama işlemi gerçekleştirilir
+
+	const reduceToplam = filterDizi.reduce((acc,item)=>{
+		return acc += item;
+	},0);//0 acc başlangıç değeri
+	console.log(reduceToplam);
+
+
+	
+</script>
+</html>

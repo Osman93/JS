@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nesneler</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// [] === [] false döner çünkü referans adresleri farklıdır.
+
+	const urunServis = {
+		ekle: function(){
+			console.log(this);
+		}
+	};
+	urunServis.ekle();
+
+	class Personel{
+		constructor(ad,soyad){
+			this.ad = ad;
+			this.soyad = soyad;
+		}
+		kaydet(){
+			console.log(`Personel Kaydedildi : ${this.ad + " " + this.soyad}`);
+		}
+	}
+
+	const personel = new Personel("Osman","Aşar");
+	personel.kaydet(); 
+</script>
+</html>
